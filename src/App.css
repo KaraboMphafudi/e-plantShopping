@@ -1,147 +1,110 @@
-/* LandingPage.css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
 }
 
 .landing-page {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-color: #f8f8f8;
-}
-
-.background-image {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://cdn.pixabay.com/photo/2017/07/13/08/59/greenhouse-2499758_1280.jpg');
-  background-size: 100% 100%;
+  background-image: url('https://images.pexels.com/photos/1445416/pexels-photo-1445416.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  background-size: cover;
   background-position: center;
-  filter: brightness(0.8);
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+  z-index: 10;
 }
+
+.landing-page.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
- top: 100px;
-  backdrop-filter: blur(4px);
-  background-color: rgba(0,0,0,0.5);
-  gap: 20px;
-}
-
-.landing_content {
- margin-top: 430px;
-  margin-left: 100px;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 30px 40px;
+  border-radius: 20px;
+  max-width: 550px;
   text-align: center;
-  /* background-color: red; */
-  width: 400px;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-}
-
-.content p,
-.content h1 {
   color: white;
 }
 
-.content h1 {
-  font-size: 48px;
+.landing_content h1 {
+  font-size: 2rem;
   margin-bottom: 10px;
+  color: #4CAF50;
 }
 
-.content p {
-  font-size: 25px;
+.landing_content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
 }
 
 .divider {
-  width: 50px;
+  width: 80px;
   height: 2px;
-  background-color: #4caf50;
-  margin: 10px 0;
+  background-color: #4CAF50;
+  margin: 15px auto;
 }
 
 .get-started-button {
-  padding: 15px 25px;
-  font-size: 23px;
-  border: none;
-  border-radius: 5px;
-  background-color: #4caf50;
+  background-color: #4CAF50;
   color: white;
+  border: none;
+  padding: 10px 30px;
+  font-size: 1rem;
+  border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 40px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
 }
 
 .get-started-button:hover {
+  transform: scale(1.05);
   background-color: #45a049;
 }
 
-/* ProductList.css */
+.aboutus_container {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 15px;
+  margin-top: 5px;
+}
+
+.aboutus_container h3 {
+  font-size: 1rem;
+  color: #4CAF50;
+  margin-bottom: 8px;
+}
+
+.aboutus_container p {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #e0e0e0;
+}
 
 .product-list-container {
-  position: absolute;
-  overflow-x: hidden;
-  top: 100vh;
-  /* Initially off-screen */
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.9);
-  /* Adjust background opacity as needed */
-  transition: top 0.5s ease;
-  /* Smooth transition for top property */
+  height: 100%;
   overflow-y: auto;
-  /* Enable vertical scrolling */
-  z-index: 2;
-  /* Ensure it's above landing page content */
-  backdrop-filter: blur(5px);
+  background-color: #f5f5f5;
+  display: none;
+  z-index: 20;
 }
 
 .product-list-container.visible {
-  top: 0;
-}
-/* LandingPage.css */
-@media screen and (max-width: 768px) {
-  .content {
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .landing_content {
-    margin-top: 100px; /* Adjust as needed */
-    margin-left: 0;
-    width: 80%; /* Adjust as needed */
-    text-align: center;
-  }
-
-  .aboutus_container {
-    margin-top: 20px; /* Adjust as needed */
-    width: 80%; /* Adjust as needed */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .landing_content {
-    margin-top: 50px; /* Adjust as needed */
-    width: 90%; /* Adjust as needed */
-  }
-
-  .aboutus_container {
-    width: 90%; /* Adjust as needed */
-  }
+  display: block;
 }
